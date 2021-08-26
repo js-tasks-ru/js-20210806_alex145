@@ -115,11 +115,12 @@ export default class SortableTable {
     const allColumns = this.element.querySelectorAll('.sortable-table__cell[data-id]');
     const currentColumn = this.element.querySelector(`.sortable-table__cell[data-id=${fieldValue}]`);
 
-    currentColumn.dataset.order = orderValue;
-
     allColumns.forEach(item => {
       item.dataset.order = '';
     });
+
+    currentColumn.dataset.order = orderValue;
+
     this.subElements.body.innerHTML = this.getTableRows(data);
   }
 }
